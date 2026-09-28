@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book My Show - Close Window</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #111;
+        color: white;
+        text-align: center;
+        padding: 50px 20px;
+    }
+    .box {
+        max-width: 420px;
+        margin: auto;
+        padding: 30px;
+        background: #222;
+        border-radius: 15px;
+    }
+    button {
+        border: none;
+        padding: 14px 25px;
+        margin: 10px;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .close { background: #e50914; color: white; }
+    .home { background: #555; color: white; }
+    #message { margin-top: 20px; color: #ccc; }
+</style>
+</head>
+<body>
+
+<div class="box">
+    <h1>Book My Show</h1>
+    <p>Your booking is completed successfully.</p>
+
+    <button class="close" onclick="closeWindow()">Close Window</button>
+    <button class="home" onclick="goHome()">Go Home</button>
+
+    <p id="message"></p>
+</div>
+
+<script>
+function closeWindow() {
+    // Browsers normally allow JavaScript to close a window
+    // only when that window was opened by JavaScript.
+    if (window.opener) {
+        window.close();
+    } else {
+        document.getElementById("message").textContent =
+            "This browser tab cannot be closed by JavaScript. You can close it using the browser's X/close button.";
+    }
+}
+
+function goHome() {
+    window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>
